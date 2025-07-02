@@ -1,5 +1,6 @@
 package org.armormind.customerapi.controller;
-
+import java.util.Map;
+import java.util.HashMap;
 import org.armormind.customerapi.model.dto.CustomerDto;
 import org.armormind.customerapi.model.request.CustomerRequest;
 import org.armormind.customerapi.model.response.CustomerDeleteResponse;
@@ -18,6 +19,14 @@ public final class CustomerController {
     public CustomerController(CustomerService customerService) {
         this.customerService = customerService;
     }
+
+    @GetMapping("/healtz")
+    public ResponseEntity<Map<String, String>> healthCheck() {
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "ok");
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+
 
     @GetMapping("/customer/{id}")
     public ResponseEntity<CustomerListResponse> getCustomer(@PathVariable("id") Long id) {

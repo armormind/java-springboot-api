@@ -77,7 +77,7 @@ jobs:
       - name: "create deployment"
         run: |
           #!/bin/bash
-
-          kubectl apply -f deployment.yaml
+          
+          kubectl rollout restart deployment springboot-api
         shell: bash
         working-directory: infra/k8s
