@@ -59,4 +59,24 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: "master"
+      
+      - name: "configure aws credentials"
+        uses: aws-actions/configure-aws-credentials@v4.1.0
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-south-1
 
+      - name: "genarate kubectl secret"
+        run: |
+          #!/bin/bash
+
+          aws eks update-kubeconfig --name springboot-api
+        shell: bash
+
+      - name: "test kubectl"
+        run: |
+          #!/bin/bash
+
+          kubectl get svc
+        shell: bash
