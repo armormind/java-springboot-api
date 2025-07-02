@@ -1,0 +1,22 @@
+name: SPRINGBOOT-JAVA-API
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build-docker-image:
+    runs-on: ubuntu-latest
+    steps:
+      
+      - name: "cloning repo"
+        uses: actions/checkout@v4
+        with:
+          ref: "master"
+      
+      - name: "build the docker image"
+        run: |
+          #!/bin/bash
+
+          docker build -t test .
