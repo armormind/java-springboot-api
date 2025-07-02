@@ -50,16 +50,6 @@ jobs:
           docker push lingarajsahu49/java:springboot-api
         shell: bash
   
-  deploy-scan:
-    runs-on: ubuntu-latest
-    needs: build-and-push-docker-image
-    steps:
-      
-      - name: "cloning repo"
-        uses: actions/checkout@v4
-        with:
-          ref: "master"
-  
   deploy-to-k8s:
     runs-on: ubuntu-latest
     needs: build-and-push-docker-image
