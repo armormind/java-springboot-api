@@ -26,7 +26,7 @@ jobs:
         run: |
           #!/bin/bash
 
-          mvn clean package
+          mvn package
         shell: bash
       
       - name: "build the docker image"
