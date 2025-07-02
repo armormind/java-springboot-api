@@ -68,7 +68,7 @@ public final class CustomerController {
         if (0L == response.getDeletedCustomerCount()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
-            return new ResponseEntity<>(response, 200);
+            return new ResponseEntity<>(response, HttpStatus.OK);
         }
     }
 
