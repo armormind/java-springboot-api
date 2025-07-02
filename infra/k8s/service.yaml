@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: springboot-api
+  labels:
+    app: springboot-api
+spec:
+  type: LoadBalancer
+  selector:
+    app: springboot-api
+  ports:
+    - port: 8090           # External port (public)
+      targetPort: 8080     # Container port inside the pod
+      protocol: TCP

@@ -81,3 +81,27 @@ jobs:
           kubectl rollout restart deployment springboot-api
         shell: bash
         working-directory: infra/k8s
+      
+      - name: "create ingress class params"
+        run: |
+          #!/bin/bash
+          
+          kubectl apply -f ingclass-params.yaml
+        shell: bash
+        working-directory: infra/k8s
+      
+      - name: "create ingress class"
+        run: |
+          #!/bin/bash
+          
+          kubectl apply -f ingclass.yaml
+        shell: bash
+        working-directory: infra/k8s
+      
+      - name: "create ingress rules"
+        run: |
+          #!/bin/bash
+          
+          kubectl apply -f ingress.yaml
+        shell: bash
+        working-directory: infra/k8s

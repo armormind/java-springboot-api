@@ -23,7 +23,7 @@ public final class CustomerController {
     @GetMapping("/healtz")
     public ResponseEntity<Map<String, String>> healthCheck() {
         Map<String, String> response = new HashMap<>();
-        response.put("message", "ok");
+        response.put("message", "ok tested");
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
