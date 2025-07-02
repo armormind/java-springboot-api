@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-api
+  labels:
+    app: springboot-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboot-api
+  template:
+    metadata:
+      labels:
+        app: springboot-api
+    spec:
+      containers:
+      - name: java
+        image: lingarajsahu49/java:springboot-api
+        ports:
+        - containerPort: 8080
+        resources: {}
+      imagePullSecrets:
+      - name: regcred

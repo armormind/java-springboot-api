@@ -74,9 +74,10 @@ jobs:
           aws eks update-kubeconfig --name springboot-api
         shell: bash
 
-      - name: "test kubectl"
+      - name: "create deployment"
         run: |
           #!/bin/bash
 
-          kubectl get svc
+          kubectl apply -f deployment.yaml
         shell: bash
+        working-directory: infra/k8s
