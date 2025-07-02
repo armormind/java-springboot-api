@@ -15,8 +15,23 @@ jobs:
         with:
           ref: "master"
       
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+          cache: 'maven'
+          cache-dependency-path: 'pom.xml'
+      
+      - name: "build with maven"
+        run: |
+          #!/bin/bash
+
+          mvn clean package
+        shell: bash
+      
       - name: "build the docker image"
         run: |
           #!/bin/bash
 
           docker build -t test .
+        shell: bash
