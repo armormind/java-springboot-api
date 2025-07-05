@@ -72,6 +72,7 @@ jobs:
           #!/bin/bash
 
           aws eks update-kubeconfig --name springboot-api
+        working-directory: infra/k8s
         shell: bash
 
       - name: "create deployment"
