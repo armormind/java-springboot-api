@@ -214,6 +214,6 @@ Found a bug or have a feature request? Feel free to [open an issue](https://gith
 
 ## 📄 License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE.txt).
 
 ---
